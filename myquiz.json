@@ -1,0 +1,49 @@
+{
+    "categories": [
+        {
+            "name": "Lätt",
+            "questions":[
+                {"question":"Vad är huvudstaden i Japan?:", "answer":"Tokyo"},
+                {"question":"Vem målade Mona Lisa?:", "answer":"Leonardo da Vinci"},
+                {"question":"Vad är 8 * 6?:", "answer":"48"},
+                {"question":"Vilket år började andra världskriget?:", "answer":"1939"},
+                {"question":"Vilken är den röda planeten?:", "answer":"Mars"},
+                {"question":"Vem skrev Romeo och Julia?:", "answer":"William Shakespeare"},
+                {"question":"Vad är huvudingrediensen i guacamole?:", "answer":"Avokado"},
+                {"question":"Vilket är det största däggdjuret?:", "answer":"Elefant"},
+                {"question":"Vad är huvudingrediensen i sushi?:", "answer":"Ris"},
+                {"question":"Vem uppfann elektriciteten?:", "answer":"Thomas Edison"}
+            ]
+        },
+        {
+            "name": "Medel",
+            "questions":[
+                {"question":"Vilket är världens största land till ytan?:", "answer":"Ryssland"},
+                {"question":"Vilken gas är mest förekommande i jordens atmosfär?", "answer":"Kväve"},
+                {"question":"Vilket år bröt det amerikanska inbördeskriget ut?:", "answer":"1861"},
+                {"question":"Vad är roten ur 121:", "answer":"11"},
+                {"question":"Vem regisserade filmen \"Pianot\" som vann Guldpalmen 1993?:", "answer":"Jane Campion"},
+                {"question":"Vad står akronymen \"HTML\" för inom webbutveckling?:", "answer":"HyperText Markup Language"},
+                {"question":"Vilken författare skrev \"Hundra års ensamhet\"?:", "answer":"Gabriel Garcia Marquez"},
+                {"question":"Vilket land arrangerade de Olympiska sommarspelen 2016?:", "answer":"Brasilien"},
+                {"question":"Vilket organ producerar insulin i människokroppen?:", "answer":"Bukspottkörteln"},
+                {"question":"Vem var medlem i bandet The Beatles och skrev låtar som \"Imagine\"?:", "answer":"John Lennon"}
+            ]
+        },
+        {
+            "name": "Svår",
+            "questions":[
+                {"question":"Vilket land har den högsta punkten på Mount Everest inom sina gränser?:", "answer":"Nepal"},
+                {"question":"Vad är termen för filosofisk studie av kunskap och vetande?:", "answer":"Epistemologi"},
+                {"question":"Vad kallas den period då dinosaurierna levde?:", "answer":"Mesozoikum"},
+                {"question":"Vad är namnet på den del av en växt där pollen produceras?:", "answer":"Ståndare"},
+                {"question":"Vad är termen för en matematisk modell som används för att simulera naturliga fenomen?:", "answer":"Differentialekvation"},
+                {"question":"Vad kallas studien av ljudsystemet i ett språk?:", "answer":"Fonologi"},
+                {"question":"Vad är namnet på det tillstånd där kroppens immunförsvar attackerar sina egna celler?:", "answer":"Autoimmunitet"},
+                {"question":"Vad är den term som används för den punkt där ljusstrålar konvergerar eller divergerar?:", "answer":"Fokus"},
+                {"question":"Vad är namnet på processen där en gas omvandlas direkt till en fast form?:", "answer":"Sublimation"},
+                {"question":"Vad är termen för en ekonomisk modell som antar att människor tar beslut baserat på rationell egenintresse?:", "answer":"Homo economicus"}
+            ]
+        }
+    ]
+}

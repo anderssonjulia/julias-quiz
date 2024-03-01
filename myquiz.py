@@ -1,7 +1,7 @@
 import json
 import random
-#import time
 import sys
+import copy
 
 #classes for the json-file
 class Question:
@@ -17,8 +17,9 @@ class Category:
     def get_random_questions(self):
         return random.choice(self.questions)
     
-#def reset_timer():
-#    return time.time()
+class Answer:
+    def __init__(self, answer):
+        self.answer = answer
 
 #import json-file
 json_file_path = '/home/jande182/work/myquiz/myquiz.json'
@@ -35,59 +36,57 @@ points = 0
 #choosing difficulty
 print("QUIZ")
 print()
-user_input_name = input("Användarnamn: ").lower()
+user_input_name = input("Username: ").lower()
 
-user_input = input("Vilken svårighetsgrad vill du ha på quizet? (Lätt/Medel/Svårt) ").lower()
-print()
+a = 5
 
-selected_category = next((c for c in categories if c.name.lower() == user_input), None)
+while a == 5:
+    selected_category = None
 
-while not selected_category:
-    user_input2 = input("Välj antingen lätt, medel eller svår! ").lower()
-    if user_input2 not in ['lätt'] and user_input2 not in ['medel'] and user_input2 not in ['svår']:
-        sys.exit()
-    else: 
+    while not selected_category:
+        user_input = input("Choose the difficulty of the quiz: (Easy/Medium/Hard) ").lower()
         print()
+        
+        for category in categories:
+            if category.name.lower() == user_input:
+                selected_category = category
+                break
 
-#    time_limit = 10
+        if selected_category == None:
+            print("Choose either easy, medium or hard!")
     
-while selected_category.questions:
+    selected_category2 = copy.deepcopy(selected_category)
+
+    while selected_category2.questions:
 
         #game starts
-        random_question = selected_category.get_random_questions()
-
-        #start_time = reset_timer()
+        random_question = selected_category2.get_random_questions()
 
         user_input = input(f"{random_question.question} ")
-        
-        #elapsed_time = time.time() - start_time
-
-        #if elapsed_time > time_limit:
-        #    print("Tiden är slut!")
-        #    break
 
         #result
         if user_input.lower() == random_question.answer.lower():
             points = points + 1
-            print("Rätt svar!!! Poäng: " + str(points))
+            print("Right answer!!! Score: " + str(points))
         else:
-            print("Fel svar. Rätt svar är:", random_question.answer)
+            print("Wrong answer. The correct answer is :", random_question.answer)
 
-        selected_category.questions.remove(random_question)
-
-        #keep playing or not
+        selected_category2.questions.remove(random_question)
         print()
-        continue_playing = input("Vill du fortsätta? (Ja/Nej) ").lower()
-        if continue_playing not in ['ja'] and continue_playing not in ['nej']:
-            continue_playing2 = input("Välj antingen ja eller nej: ").lower()
-            if continue_playing2 not in ['ja'] and continue_playing2 not in ['nej']:
-                break
-            else:
-                print()
-                continue
 
-        elif continue_playing == 'ja':
-            print()
-            continue
-        elif continue_playing == 'nej':
-            sys.exit()
+    print("Round is finished " + user_input_name + "! Score: " + str(points))
+
+
+    #keep playing or not
+    continue_playing = None
+
+    while continue_playing != "yes" and continue_playing != "no":
+        continue_playing = input("Do you want to keep playing? (Yes/No) ").lower()
+        print()
+
+        for continue_playing in input():
+            if continue_playing == "yes" or continue_playing == "no":
+                break
+
+        if continue_playing != "yes" and continue_playing != "no":
+            print("Choose either yes or no: ")

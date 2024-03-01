@@ -1,49 +1,49 @@
 {
     "categories": [
         {
-            "name": "Lätt",
-            "questions":[
-                {"question":"Vad är huvudstaden i Japan?:", "answer":"Tokyo"},
-                {"question":"Vem målade Mona Lisa?:", "answer":"Leonardo da Vinci"},
-                {"question":"Vad är 8 * 6?:", "answer":"48"},
-                {"question":"Vilket år började andra världskriget?:", "answer":"1939"},
-                {"question":"Vilken är den röda planeten?:", "answer":"Mars"},
-                {"question":"Vem skrev Romeo och Julia?:", "answer":"William Shakespeare"},
-                {"question":"Vad är huvudingrediensen i guacamole?:", "answer":"Avokado"},
-                {"question":"Vilket är det största däggdjuret?:", "answer":"Elefant"},
-                {"question":"Vad är huvudingrediensen i sushi?:", "answer":"Ris"},
-                {"question":"Vem uppfann elektriciteten?:", "answer":"Thomas Edison"}
-            ]
-        },
-        {
-            "name": "Medel",
-            "questions":[
-                {"question":"Vilket är världens största land till ytan?:", "answer":"Ryssland"},
-                {"question":"Vilken gas är mest förekommande i jordens atmosfär?", "answer":"Kväve"},
-                {"question":"Vilket år bröt det amerikanska inbördeskriget ut?:", "answer":"1861"},
-                {"question":"Vad är roten ur 121:", "answer":"11"},
-                {"question":"Vem regisserade filmen \"Pianot\" som vann Guldpalmen 1993?:", "answer":"Jane Campion"},
-                {"question":"Vad står akronymen \"HTML\" för inom webbutveckling?:", "answer":"HyperText Markup Language"},
-                {"question":"Vilken författare skrev \"Hundra års ensamhet\"?:", "answer":"Gabriel Garcia Marquez"},
-                {"question":"Vilket land arrangerade de Olympiska sommarspelen 2016?:", "answer":"Brasilien"},
-                {"question":"Vilket organ producerar insulin i människokroppen?:", "answer":"Bukspottkörteln"},
-                {"question":"Vem var medlem i bandet The Beatles och skrev låtar som \"Imagine\"?:", "answer":"John Lennon"}
-            ]
-        },
-        {
-            "name": "Svår",
-            "questions":[
-                {"question":"Vilket land har den högsta punkten på Mount Everest inom sina gränser?:", "answer":"Nepal"},
-                {"question":"Vad är termen för filosofisk studie av kunskap och vetande?:", "answer":"Epistemologi"},
-                {"question":"Vad kallas den period då dinosaurierna levde?:", "answer":"Mesozoikum"},
-                {"question":"Vad är namnet på den del av en växt där pollen produceras?:", "answer":"Ståndare"},
-                {"question":"Vad är termen för en matematisk modell som används för att simulera naturliga fenomen?:", "answer":"Differentialekvation"},
-                {"question":"Vad kallas studien av ljudsystemet i ett språk?:", "answer":"Fonologi"},
-                {"question":"Vad är namnet på det tillstånd där kroppens immunförsvar attackerar sina egna celler?:", "answer":"Autoimmunitet"},
-                {"question":"Vad är den term som används för den punkt där ljusstrålar konvergerar eller divergerar?:", "answer":"Fokus"},
-                {"question":"Vad är namnet på processen där en gas omvandlas direkt till en fast form?:", "answer":"Sublimation"},
-                {"question":"Vad är termen för en ekonomisk modell som antar att människor tar beslut baserat på rationell egenintresse?:", "answer":"Homo economicus"}
-            ]
+            "name": "Easy",
+        "questions": [
+            {"question": "What is the capital of Japan?", "answer": "Tokyo"},
+            {"question": "Who painted the Mona Lisa?", "answer": "Leonardo da Vinci"},
+            {"question": "What is 8 * 6?", "answer": "48"},
+            {"question": "In which year did World War II begin?", "answer": "1939"},
+            {"question": "Which is the red planet?", "answer": "Mars"},
+            {"question": "Who wrote Romeo and Juliet?", "answer": "William Shakespeare"},
+            {"question": "What is the main ingredient in guacamole?", "answer": "Avocado"},
+            {"question": "What is the largest mammal?", "answer": "Elephant"},
+            {"question": "What is the main ingredient in sushi?", "answer": "Rice"},
+            {"question": "Who invented electricity?", "answer": "Thomas Edison"}
+        ]
+    },
+    {
+        "name": "Medium",
+        "questions": [
+            {"question": "What is the world's largest country by area?", "answer": "Russia"},
+            {"question": "Which gas is most abundant in the Earth's atmosphere?", "answer": "Nitrogen"},
+            {"question": "In which year did the American Civil War begin?", "answer": "1861"},
+            {"question": "What is the square root of 121?", "answer": "11"},
+            {"question": "Who directed the film 'The Piano,' which won the Palme d'Or in 1993?", "answer": "Jane Campion"},
+            {"question": "What does the acronym 'HTML' stand for in web development?", "answer": "HyperText Markup Language"},
+            {"question": "Which author wrote 'One Hundred Years of Solitude'?", "answer": "Gabriel Garcia Marquez"},
+            {"question": "Which country hosted the Olympic Summer Games in 2016?", "answer": "Brazil"},
+            {"question": "Which organ produces insulin in the human body?", "answer": "Pancreas"},
+            {"question": "Who was a member of The Beatles and wrote songs like 'Imagine'?", "answer": "John Lennon"}
+        ]
+    },
+    {
+        "name": "Hard",
+        "questions": [
+            {"question": "Which country has the highest point of Mount Everest within its borders?", "answer": "Nepal"},
+            {"question": "What is the term for the philosophical study of knowledge and belief?", "answer": "Epistemology"},
+            {"question": "What is the period called when dinosaurs lived?", "answer": "Mesozoic Era"},
+            {"question": "What is the name of the part of a plant where pollen is produced?", "answer": "Stamen"},
+            {"question": "What is the term for a mathematical model used to simulate natural phenomena?", "answer": "Differential Equation"},
+            {"question": "What is the study of the sound system of a language called?", "answer": "Phonology"},
+            {"question": "What is the name of the condition where the body's immune system attacks its own cells?", "answer": "Autoimmunity"},
+            {"question": "What is the term used for the point where light rays converge or diverge?", "answer": "Focus"},
+            {"question": "What is the name of the process where a gas transforms directly into a solid form?", "answer": "Sublimation"},
+            {"question": "What is the term for an economic model assuming that people make decisions based on rational self-interest?", "answer": "Homo economicus"}
+        ]
         }
     ]
 }

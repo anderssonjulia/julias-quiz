@@ -35,7 +35,6 @@ class Category:
         self.name = name
         self.questions = [Question(**q) for q in questions]
 
-
     def get_random_questions(self):
         """Functiondocumentation"""
         return random.choice(self.questions)

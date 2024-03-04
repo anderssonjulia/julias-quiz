@@ -3,11 +3,12 @@ import random
 import copy
 import pytest
 
-#classes for the json-file
+# classes for the json-file
 class Question:
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
+
 
 class Category:
     def __init__(self, name, questions):
@@ -17,8 +18,9 @@ class Category:
     def get_random_questions(self):
         return random.choice(self.questions)
 
-#import json-file
-JSON_FILE_PATH = '/home/jande182/work/myquiz/myquiz.json'
+
+# import json-file
+JSON_FILE_PATH = "/home/jande182/work/myquiz/myquiz.json"
 
 with open(JSON_FILE_PATH, "r") as json_file:
     json_data = json_file.read()
@@ -26,10 +28,10 @@ with open(JSON_FILE_PATH, "r") as json_file:
 data = json.loads(json_data)
 categories = [Category(**c) for c in data["categories"]]
 
-#points
+# points
 POINTS = 0
 
-#choosing difficulty
+# choosing difficulty
 print("QUIZ")
 print()
 user_name = input("Username: ").lower()
@@ -38,9 +40,7 @@ user_name = input("Username: ").lower()
 selected_category = None
 
 while not selected_category:
-    user_input = input(
-        "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
-    ).lower()
+    user_input = input("Choose the difficulty of the quiz: (Easy/Medium/Hard) ").lower()
     print()
 
     for category in categories:
@@ -55,12 +55,12 @@ selected_category2 = copy.deepcopy(selected_category)
 
 while selected_category2.questions:
 
-    #game starts
+    # game starts
     random_question = selected_category2.get_random_questions()
 
     user_input = input(f"{random_question.question} ")
 
-    #result
+    # result
     if user_input.lower() == random_question.answer.lower():
         POINTS = POINTS + 1
         print("Right answer!!! Score: " + str(POINTS))
@@ -73,16 +73,16 @@ while selected_category2.questions:
 print("Round is finished " + user_name + "! Score: " + str(POINTS))
 
 
-#keep playing or not
+# keep playing or not
 CONTINUE_PLAYING = None
 
-while CONTINUE_PLAYING not in ('yes', 'no'):
+while CONTINUE_PLAYING not in ("yes", "no"):
     CONTINUE_PLAYING = input("Do you want to keep playing? (Yes/No) ").lower()
     print()
 
     for CONTINUE_PLAYING in input():
-        if CONTINUE_PLAYING in ('yes', 'no'):
+        if CONTINUE_PLAYING in ("yes", "no"):
             break
 
-    if CONTINUE_PLAYING not in ('yes', 'no'):
+    if CONTINUE_PLAYING not in ("yes", "no"):
         print("Choose either yes or no: ")

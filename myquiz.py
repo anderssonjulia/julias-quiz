@@ -31,14 +31,12 @@ POINTS = 0
 #choosing difficulty
 print("QUIZ")
 print()
-user_input_name = input("Username: ").lower()
+user_name = input("Username: ").lower()
 
-A = 5
 
-while A == 5:
-    selected_category is None
+selected_category is None
 
-    while not selected_category:
+while not selected_category:
         user_input = input(
             "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
         ).lower()

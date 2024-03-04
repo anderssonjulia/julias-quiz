@@ -1,7 +1,10 @@
-"""myquiz.py is a python file that allows you to do a quiz with three different difficulties. 
-First you enter your username and then choose preferred difficulty, each containing 10 questions. 
-Each correct answer gives you a point and after the 10 questions are done, you can choose to either stop or keep playing.
-If you continue playing you can choose a new difficulty, including the previous. Your score is saved from previous rounds, until you exit the quiz."""
+"""myquiz.py is a python file that allows you to do a quiz with 
+three different difficulties. First you enter your username 
+and then choose preferred difficulty, each containing 10 questions. 
+Each correct answer gives you a point and after the 10 questions are done, 
+you can choose to either stop or keep playing. If you continue playing 
+you can choose a new difficulty, including the previous. 
+Your score is saved from previous rounds, until you exit the quiz."""
 
 import json
 import random

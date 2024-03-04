@@ -3,6 +3,7 @@ import random
 import copy
 import pytest
 
+
 # classes for the json-file
 class Question:
     def __init__(self, question, answer):

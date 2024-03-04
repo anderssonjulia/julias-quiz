@@ -14,6 +14,18 @@ class Question:
         self.question = question
         self.answer = answer
 
+    def display_question(self):
+        """Dispay the question."""
+        print(f"Question: {self.question}")
+
+    def display_answer(self):
+        """Display the answer."""
+        print(f"Answer: {self.answer}")
+
+    def is_correct(self):
+        """Check if the user's input is the correct answer."""
+        return user_input.lower() == self.answer.lower()
+
 
 class Category:
     """Class documentation for Category."""
@@ -23,10 +35,11 @@ class Category:
         self.name = name
         self.questions = [Question(**q) for q in questions]
 
+
     def get_random_questions(self):
         """Functiondocumentation"""
         return random.choice(self.questions)
-    
+
     def get_all_questions(self):
         """Get all questions in category."""
         return self.questions

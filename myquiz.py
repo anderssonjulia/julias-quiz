@@ -11,7 +11,6 @@ class Question:
 
     def __init__(self, question, answer):
         """Constructor documentation."""
-
         self.question = question
         self.answer = answer
 
@@ -21,14 +20,16 @@ class Category:
 
     def __init__(self, name, questions):
         """Constructor documentation."""
-
         self.name = name
         self.questions = [Question(**q) for q in questions]
 
     def get_random_questions(self):
         """Functiondocumentation"""
-
         return random.choice(self.questions)
+    
+    def get_all_questions(self):
+        """Get all questions in category."""
+        return self.questions
 
 
 # import json-file

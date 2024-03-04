@@ -1,4 +1,7 @@
-"""Module documentation for myquiz."""
+"""myquiz.py is a python file that allows you to do a quiz with three different difficulties. 
+First you enter your username and then choose preferred difficulty, each containing 10 questions. 
+Each correct answer gives you a point and after the 10 questions are done, you can choose to either stop or keep playing.
+If you continue playing you can choose a new difficulty, including the previous. Your score is saved from previous rounds, until you exit the quiz."""
 
 import json
 import random
@@ -54,7 +57,7 @@ data = json.loads(json_data)
 categories = [Category(**c) for c in data["categories"]]
 
 # points
-POINTS = 0
+SCORE = 0
 
 # choosing difficulty
 print("QUIZ")
@@ -87,15 +90,15 @@ while selected_category2.questions:
 
     # result
     if user_input.lower() == random_question.answer.lower():
-        POINTS = POINTS + 1
-        print("Right answer!!! Score: " + str(POINTS))
+        SCORE = SCORE + 1
+        print("Right answer!!! Score: " + str(SCORE))
     else:
         print("Wrong answer. The correct answer is :", random_question.answer)
 
     selected_category2.questions.remove(random_question)
     print()
 
-print("Round is finished " + user_name + "! Score: " + str(POINTS))
+print("Round is finished " + user_name + "! Score: " + str(SCORE))
 
 
 # keep playing or not

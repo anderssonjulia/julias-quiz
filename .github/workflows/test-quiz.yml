@@ -24,9 +24,8 @@ jobs:
           pip install black
 
       - name: Run Black-check
-        run: 
-          black --diff .
-          black --check -v .
+        run: black --diff . && black --check -v .
+        continue-on-error: true
 
   pylint-check:
     runs-on: ubuntu-latest

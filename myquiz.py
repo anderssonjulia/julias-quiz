@@ -1,3 +1,5 @@
+"""Module documentation for myquiz."""
+
 import json
 import random
 import copy
@@ -5,24 +7,34 @@ import copy
 
 # classes for the json-file
 class Question:
+    """Class documentation for Question."""
+
     def __init__(self, question, answer):
+        """Constructor documentation."""
+
         self.question = question
         self.answer = answer
 
 
 class Category:
+    """Class documentation for Category."""
+
     def __init__(self, name, questions):
+        """Constructor documentation."""
+
         self.name = name
         self.questions = [Question(**q) for q in questions]
 
     def get_random_questions(self):
+        """Functiondocumentation"""
+
         return random.choice(self.questions)
 
 
 # import json-file
 JSON_FILE_PATH = "/home/jande182/work/myquiz/myquiz.json"
 
-with open(JSON_FILE_PATH, "r") as json_file:
+with open(JSON_FILE_PATH, "r", encoding = "utf-8") as json_file:
     json_data = json_file.read()
 
 data = json.loads(json_data)
@@ -37,21 +49,21 @@ print()
 user_name = input("Username: ").lower()
 
 
-selected_category = None
+SELECTED_CATEGORY = None
 
-while not selected_category:
+while not SELECTED_CATEGORY:
     user_input = input("Choose the difficulty of the quiz: (Easy/Medium/Hard) ").lower()
     print()
 
     for category in categories:
         if category.name.lower() == user_input:
-            selected_category = category
+            SELECTED_CATEGORY = category
             break
 
-    if selected_category is None:
+    if SELECTED_CATEGORY is None:
         print("Choose either easy, medium or hard!")
 
-selected_category2 = copy.deepcopy(selected_category)
+selected_category2 = copy.deepcopy(SELECTED_CATEGORY)
 
 while selected_category2.questions:
 

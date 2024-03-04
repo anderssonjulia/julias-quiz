@@ -1,7 +1,6 @@
 import json
 import random
 import copy
-import pytest
 
 
 # classes for the json-file

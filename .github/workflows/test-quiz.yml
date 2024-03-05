@@ -64,4 +64,4 @@ jobs:
           pip install pytest
 
       - name: Run Pytest
-        run: pytest -s test_quiz.py
+        run: pytest -s myquiz.py

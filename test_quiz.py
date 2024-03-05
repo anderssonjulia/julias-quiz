@@ -31,4 +31,5 @@ def test_get_CONTINUE_PLAYING():
             result = get_CONTINUE_PLAYING()
             assert result == expected_result
 
+
 # Reformat the code into a fixture

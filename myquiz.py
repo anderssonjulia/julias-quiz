@@ -51,7 +51,7 @@ class Category:
 
 
 # import json-file
-JSON_FILE_PATH = "/home/jande182/work/myquiz/myquiz.json"
+JSON_FILE_PATH = 'myquiz.json'
 
 with open(JSON_FILE_PATH, "r", encoding="utf-8") as json_file:
     json_data = json_file.read()

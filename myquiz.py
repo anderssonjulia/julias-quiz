@@ -74,7 +74,9 @@ while CONTINUE_PLAYING != "no":
     SELECTED_CATEGORY = None
 
     while not SELECTED_CATEGORY:
-        user_input_choose_difficulty = input("Choose the difficulty of the quiz: (Easy/Medium/Hard) ").lower()
+        user_input_choose_difficulty = input(
+            "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
+        ).lower()
         print()
 
         for category in categories:
@@ -105,7 +107,6 @@ while CONTINUE_PLAYING != "no":
         print()
 
     print("Round is finished " + user_input_name + "! Score: " + str(SCORE))
-
 
     # keep playing or not
     CONTINUE_PLAYING = None

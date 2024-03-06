@@ -42,7 +42,7 @@ class Category:
         self.questions = [Question(**q) for q in questions]
 
     def get_random_questions(self):
-        """Functiondocumentation"""
+        """The questions appear in a random but set order."""
         random.seed(21)
         return random.choice(self.questions)
 

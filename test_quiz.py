@@ -1,6 +1,9 @@
 from unittest.mock import patch
 from myquiz import main
 
+# This testing file includes four different tests
+# The first three of them includes different "keep playing" inputs (yes, no, maybe -> no)
+# The fourth one has an invalid category input
 
 # Keep playing is no
 def test_main_easy_no(capsys):
@@ -283,6 +286,83 @@ Round is finished Julia! Score: 14
     with patch("builtins.input", side_effect=get_input):
         main()
     assert expected == capsys.readouterr().out
+
+
+
+
+# Invalid difficulty
+def test_main_esy(capsys):
+    """Docstring"""
+    input_dict = {}
+    input_dict["username"] = "Julia"
+    input_dict["difficulty"] = "Esy"
+    input_dict["difficulty2"] = "Easy"
+    input_dict["answer q1"] = "48"
+    input_dict["answer q2"] = "1939"
+    input_dict["answer q3"] = "mars"
+    input_dict["answer q4"] = ""
+    input_dict["answer q5"] = "william shakespeare"
+    input_dict["answer q6"] = "avocado"
+    input_dict["answer q7"] = "dont know"
+    input_dict["answer q8"] = "Tokyo"
+    input_dict["answer q9"] = "Rice"
+    input_dict["answer q10"] = "i dont know"
+    input_dict["keep playing"] = "No"
+
+    my_input = [
+        input_dict["username"],
+        input_dict["difficulty"],
+        input_dict["difficulty2"],
+        input_dict["answer q1"],
+        input_dict["answer q2"],
+        input_dict["answer q3"],
+        input_dict["answer q4"],
+        input_dict["answer q5"],
+        input_dict["answer q6"],
+        input_dict["answer q7"],
+        input_dict["answer q8"],
+        input_dict["answer q9"],
+        input_dict["answer q10"],
+        input_dict["keep playing"],
+    ]
+
+    def get_input(text=""):
+        return my_input.pop(0)
+
+    expected = """QUIZ
+
+
+Choose either easy, medium or hard!
+
+Right answer!!! Score: 1
+
+Right answer!!! Score: 2
+
+Right answer!!! Score: 3
+
+Wrong answer. The correct answer is : Leonardo da Vinci
+
+Right answer!!! Score: 4
+
+Right answer!!! Score: 5
+
+Wrong answer. The correct answer is : Elephant
+
+Right answer!!! Score: 6
+
+Right answer!!! Score: 7
+
+Wrong answer. The correct answer is : Thomas Edison
+
+Round is finished Julia! Score: 7
+
+"""
+
+    with patch("builtins.input", side_effect=get_input):
+        main()
+    assert expected == capsys.readouterr().out
+
+
 
 
 # @pytest.fixture

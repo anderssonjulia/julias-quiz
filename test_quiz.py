@@ -289,8 +289,6 @@ Round is finished Julia! Score: 14
     assert expected == capsys.readouterr().out
 
 
-
-
 # Invalid difficulty
 def test_main_esy(capsys):
     """Docstring"""
@@ -362,8 +360,6 @@ Round is finished Julia! Score: 7
     with patch("builtins.input", side_effect=get_input):
         main()
     assert expected == capsys.readouterr().out
-
-
 
 
 # @pytest.fixture

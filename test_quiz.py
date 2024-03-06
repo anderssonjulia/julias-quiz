@@ -1,6 +1,7 @@
 from unittest.mock import patch
 from myquiz import main
 
+
 # Keep playing is no
 def test_main_easy_no(capsys):
     """Docstring"""

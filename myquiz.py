@@ -51,34 +51,33 @@ class Category:
         return self.questions
 
 
-
-
 def main():
+    """docstring"""
 
     # import json-file
-    JSON_FILE_PATH = "myquiz.json"
+    json_file_path = "myquiz.json"
 
-    with open(JSON_FILE_PATH, "r") as json_file:
+    with open(json_file_path, "r", encoding="utf-8") as json_file:
         json_data = json_file.read()
 
     data = json.loads(json_data)
     categories = [Category(**c) for c in data["categories"]]
 
     # points
-    SCORE = 0
+    score = 0
 
     # choosing difficulty
     print("QUIZ")
     print()
     user_input_name = input("Username: ")
 
-    CONTINUE_PLAYING = None
+    continue_playing = None
 
-    while CONTINUE_PLAYING != "no":
+    while continue_playing != "no":
 
-        SELECTED_CATEGORY = None
+        selected_category = None
 
-        while not SELECTED_CATEGORY:
+        while not selected_category:
             user_input_choose_difficulty = input(
                 "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
             ).lower()
@@ -86,47 +85,47 @@ def main():
 
             for category in categories:
                 if category.name.lower() == user_input_choose_difficulty:
-                    SELECTED_CATEGORY = category
+                    selected_category = category
                     break
 
-            if SELECTED_CATEGORY is None:
+            if selected_category is None:
                 print("Choose either easy, medium or hard!")
 
-        selected_category = copy.deepcopy(SELECTED_CATEGORY)
+        selected_category_copy = copy.deepcopy(selected_category)
 
-        while selected_category.questions:
+        while selected_category_copy.questions:
 
             # game starts
-            random_question = selected_category.get_random_questions()
- 
+            random_question = selected_category_copy.get_random_questions()
+
             user_question_answer = input(f"{random_question.question} ")
 
             # result
             if random_question.is_correct(user_question_answer):
-                
-                SCORE = SCORE + 1
-                print("Right answer!!! Score: " + str(SCORE))
+
+                score = score + 1
+                print("Right answer!!! Score: " + str(score))
             else:
                 print("Wrong answer. The correct answer is :", random_question.answer)
 
-            selected_category.questions.remove(random_question)
+            selected_category_copy.questions.remove(random_question)
             print()
 
-        print("Round is finished " + user_input_name + "! Score: " + str(SCORE))
+        print("Round is finished " + user_input_name + "! Score: " + str(score))
 
         # keep playing or not
-        CONTINUE_PLAYING = None
+        continue_playing = None
 
-        while CONTINUE_PLAYING not in ("yes", "no"):
-            CONTINUE_PLAYING = input("Do you want to keep playing? (Yes/No) ").lower()
+        while continue_playing not in ("yes", "no"):
+            continue_playing = input("Do you want to keep playing? (Yes/No) ").lower()
             print()
 
-            for CONTINUE_PLAYING in input():
-                if CONTINUE_PLAYING in ("yes", "no"):
-                    break
+            if continue_playing in ("yes", "no"):
+                break
 
-            if CONTINUE_PLAYING not in ("yes", "no"):
+            if continue_playing not in ("yes", "no"):
                 print("Choose either yes or no: ")
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()

@@ -39,7 +39,13 @@ class Category:
     def __init__(self, name, questions):
         """Constructor documentation."""
         self.name = name
-        self.questions = [Question(**q) for q in questions]
+        self.questions = []
+
+        for question_data in questions:
+            ask = Question(
+                question=question_data["question"], answer=question_data["answer"]
+            )
+            self.questions.append(ask)
 
     def get_random_questions(self):
         """The questions appear in a random but set order."""
@@ -61,7 +67,13 @@ def main():
         json_data = json_file.read()
 
     data = json.loads(json_data)
-    categories = [Category(**c) for c in data["categories"]]
+    categories = []
+
+    for category_data in data["categories"]:
+        category = Category(
+            name=category_data["name"], questions=category_data["questions"]
+        )
+        categories.append(category)
 
     # points
     score = 0

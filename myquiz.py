@@ -57,23 +57,29 @@ class Category:
         return self.questions
 
 
-def main():
-    """docstring"""
-
-    # import json-file
-    json_file_path = "myquiz.json"
-
+def get_category_list(json_file_path):
+    
+    # Get Categories dict from json file    
     with open(json_file_path, "r", encoding="utf-8") as json_file:
         json_data = json_file.read()
 
     data = json.loads(json_data)
-    categories = []
+
+    # Create Catergories objects
+    category_list = []
 
     for category_data in data["categories"]:
         category = Category(
             name=category_data["name"], questions=category_data["questions"]
         )
-        categories.append(category)
+        category_list.append(category)
+
+    return category_list
+
+def main():
+    """docstring"""
+    json_file_path = "myquiz.json"
+    category_list = get_category_list(json_file_path)
 
     # points
     score = 0
@@ -95,7 +101,7 @@ def main():
             ).lower()
             print()
 
-            for category in categories:
+            for category in category_list:
                 if category.name.lower() == user_input_choose_difficulty:
                     selected_category = category
                     break

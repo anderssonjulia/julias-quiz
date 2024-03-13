@@ -11,7 +11,7 @@ import random
 import copy
 
 
-# classes for the json-file
+# Classes for the json-file
 class Question:
     """Class documentation for Question."""
 
@@ -58,8 +58,9 @@ class Category:
 
 
 def get_category_list(json_file_path):
-    
-    # Get Categories dict from json file    
+    """docstring"""
+
+    # Get Categories dict from json file
     with open(json_file_path, "r", encoding="utf-8") as json_file:
         json_data = json_file.read()
 
@@ -76,18 +77,20 @@ def get_category_list(json_file_path):
 
     return category_list
 
+
 def player_wants_to_continue_playing():
+    """docstring"""
     while True:
         yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
         print()
-        
-        if yes_or_no == 'yes':
+
+        if yes_or_no == "yes":
             return True
-        elif yes_or_no == 'no':
+        elif yes_or_no == "no":
             return False
         else:
             print("Choose either yes or no: ")
-            
+
 
 def main():
     """docstring"""
@@ -95,17 +98,17 @@ def main():
     json_file_path = "myquiz.json"
     category_list = get_category_list(json_file_path)
 
-    # choosing difficulty
+    # Type username
     print("QUIZ")
     print()
     user_input_name = input("Username: ")
 
-    continue_playing = True
-
     # Start new quiz
     score = 0
 
-    # Start tournament
+    continue_playing = True
+
+    # Start a new round of the quiz
     while continue_playing:
 
         selected_category = None
@@ -125,7 +128,6 @@ def main():
                 print("Choose either easy, medium or hard!")
 
         selected_category_copy = copy.deepcopy(selected_category)
-
 
         while selected_category_copy.questions:
 
@@ -147,8 +149,9 @@ def main():
 
         print("Round is finished " + user_input_name + "! Score: " + str(score))
 
-        # keep playing or not
+        # Keep playing or not
         continue_playing = player_wants_to_continue_playing()
+
 
 if __name__ == "__main__":
     main()

@@ -76,22 +76,37 @@ def get_category_list(json_file_path):
 
     return category_list
 
+def player_wants_to_continue_playing():
+    while True:
+        yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
+        print()
+        
+        if yes_or_no == 'yes':
+            return True
+        elif yes_or_no == 'no':
+            return False
+        else:
+            print("Choose either yes or no: ")
+            
+
 def main():
     """docstring"""
+    # Get categories
     json_file_path = "myquiz.json"
     category_list = get_category_list(json_file_path)
-
-    # points
-    score = 0
 
     # choosing difficulty
     print("QUIZ")
     print()
     user_input_name = input("Username: ")
 
-    continue_playing = None
+    continue_playing = True
 
-    while continue_playing != "no":
+    # Start new quiz
+    score = 0
+
+    # Start tournament
+    while continue_playing:
 
         selected_category = None
 
@@ -111,14 +126,15 @@ def main():
 
         selected_category_copy = copy.deepcopy(selected_category)
 
+
         while selected_category_copy.questions:
 
-            # game starts
+            # Ask questions
             random_question = selected_category_copy.get_random_questions()
 
             user_question_answer = input(f"{random_question.question} ")
 
-            # result
+            # Check if answer is correct
             if random_question.is_correct(user_question_answer):
 
                 score = score + 1
@@ -132,18 +148,7 @@ def main():
         print("Round is finished " + user_input_name + "! Score: " + str(score))
 
         # keep playing or not
-        continue_playing = None
-
-        while continue_playing not in ("yes", "no"):
-            continue_playing = input("Do you want to keep playing? (Yes/No) ").lower()
-            print()
-
-            if continue_playing in ("yes", "no"):
-                break
-
-            if continue_playing not in ("yes", "no"):
-                print("Choose either yes or no: ")
-
+        continue_playing = player_wants_to_continue_playing()
 
 if __name__ == "__main__":
     main()

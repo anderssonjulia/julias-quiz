@@ -77,6 +77,31 @@ def get_category_list(json_file_path):
 
     return category_list
 
+def startup():
+    """docstr"""
+    print("QUIZ")
+    print()
+    user_input_name = input("Username: ")
+    return user_input_name
+
+def player_choose_category(category_list):
+    """docstr"""
+    selected_category = None
+
+    while selected_category is None:
+            user_input_choose_difficulty = input(
+                "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
+            ).lower()
+            print()
+
+            for category in category_list:
+                if category.name.lower() == user_input_choose_difficulty:
+                    selected_category = category
+
+            if selected_category is None:
+                print("Choose either easy, medium or hard!")
+
+    return selected_category
 
 def player_wants_to_continue_playing():
     """docstring"""
@@ -99,9 +124,7 @@ def main():
     category_list = get_category_list(json_file_path)
 
     # Type username
-    print("QUIZ")
-    print()
-    user_input_name = input("Username: ")
+    user_input_name = startup()
 
     # Start new quiz
     score = 0
@@ -111,21 +134,7 @@ def main():
     # Start a new round of the quiz
     while continue_playing:
 
-        selected_category = None
-
-        while not selected_category:
-            user_input_choose_difficulty = input(
-                "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
-            ).lower()
-            print()
-
-            for category in category_list:
-                if category.name.lower() == user_input_choose_difficulty:
-                    selected_category = category
-                    break
-
-            if selected_category is None:
-                print("Choose either easy, medium or hard!")
+        selected_category = player_choose_category(category_list)
 
         selected_category_copy = copy.deepcopy(selected_category)
 

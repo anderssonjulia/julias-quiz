@@ -458,3 +458,32 @@ Round is finished Julia! Score: 7
 
 
 # Reformat the code into a fixture
+
+
+def ask_question(selected_category_copy):
+    """docstr"""
+    random_question = selected_category_copy.get_random_questions()
+
+    user_question_answer = input(f"{random_question.question} ")
+
+    return user_question_answer, random_question
+
+
+# # Inside game_starts() function
+# user_question_answer = ask_question(random_question)
+
+#             # Check if answer is correct
+#             if random_question.is_correct(user_question_answer):
+
+#                 score = score + 1
+#                 print("Right answer!!! Score: " + str(score))
+#             else:
+#                 print("Wrong answer. The correct answer is :", random_question.answer)
+
+#             selected_category_copy.questions.remove(random_question)
+#             print()
+
+#         print("Round is finished " + user_input_name + "! Score: " + str(score))
+
+#         # Keep playing or not
+#         continue_playing = player_wants_to_continue_playing()

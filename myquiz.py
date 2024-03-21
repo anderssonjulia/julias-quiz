@@ -105,7 +105,7 @@ def get_difficulty_list(json_file_path):
 
 def get_user_input_name():
     """docstr"""
-    print("QUIZ")
+    print("WELCOME TO QUIZ")
     print()
     user_input_name = input("Username: ")
 

@@ -1,2 +1,7 @@
 # julias-quiz
-Quiz
+myquiz.py is a python file that allows you to run a quiz application based on three different difficulties. First you type in your username 
+and then choose your preferred difficulty (easy, medium or hard), each containing 10 questions. Each correct answer gives you a point and after the 10 questions are done, 
+you can choose to either stop or keep playing. If you continue playing you can choose a new difficulty, including the previous. 
+Your score is saved from previous rounds, until you exit the quiz.
+
+The different difficulties including each of the questions and answers are stored in a json file (myquiz.json). It consists of the dictionary "difficulties" that contains three elements, each including two key:value pairs. The first key in all of the elements is "name" which stores the name of the difficulty. The second key is "questions" which has another dictionary as its value. This dictionary stores the 10 questions and their answers as key:value pairs. To add a question to the quiz you simply add a new key:value pair, the question and the answer connected to it. To add a new difficulty you add a new element to the "difficulties" dictionary and then you could copy the structure of they other difficulties and your own questions and answers. Also change the "name" key.

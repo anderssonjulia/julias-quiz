@@ -1,5 +1,5 @@
 from unittest.mock import patch
-from myquiz import main
+from question_mark import main
 
 # This testing file includes four different tests
 # The first three of them includes different "keep playing" inputs (yes, no, maybe -> no)
@@ -290,7 +290,7 @@ Round is finished Julia! Score: 14
 
 
 # Invalid difficulty
-def test_main_esy(capsys):
+def test_main_invalid_difficulty(capsys):
     """Docstring"""
     input_dict = {}
     input_dict["username"] = "Julia"

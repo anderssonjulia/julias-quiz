@@ -34,17 +34,18 @@ class QuizQuestion:
         """Check if the user's input is the correct answer."""
         return user_answer.lower() == self.answer.lower()
 
-    # Ändrade till filtered list
-    def get_random_questions(filtered_question_list):
-        random.seed(21)
-        return random.choice(filtered_question_list)
+
+# Ändrade till filtered list
+def get_random_questions(selected_question_list):
+    random.seed(21)
+    return random.choice(selected_question_list)
 
 
 class User:
     def __init__(self, score=0):
         self.score = score
 
-    def get_username(self):
+    def set_username(self):
         """docstr"""
         username = input("Username: ")
         return username
@@ -57,9 +58,13 @@ class User:
         return self.score
 
 
-# Ställer frågan och tar in input
+# Ställer frågan och tar in input, vad är skillnaden på denna och QuizQuestion?
+# Är det att denna endast har de filtrerade frågorna?
+# Nej för det har ju QuestionBoard
 class QuestionManager:
-    pass
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
 
 
 # Har den nuvarande kategorin och dess frågor
@@ -127,7 +132,7 @@ def game_starts():
 
     user = User()
 
-    username = user.get_username()
+    username = user.set_username()
     score = user.get_score()
 
     questions_json_file_path = Path("questions.json")
@@ -143,28 +148,31 @@ def game_starts():
         selected_questions_list = copy.deepcopy(filtered_question_list)
 
         # Select question, get answer and get point
-        score += run_quiz_round(selected_questions_list, score)
+        score = run_quiz_round(selected_questions_list, score)
 
         print("Round is finished " + username + "! Score: " + str(score))
 
         continue_playing = player_wants_to_continue_playing()
+
+    return selected_questions_list
 
 
 def run_quiz_round(selected_questions_list, score):
     """docstr"""
     # Looping through the questions and asking for input
     while len(selected_questions_list) > 0:
-        random_question = selected_questions_list.get_random_questions()
+        # AttributeError: 'list' object has no attribute 'get_random_questions'
+        random_question = get_random_questions(selected_questions_list)
         user_answer = input(f"{random_question.question}")
 
         # Check if the player's answer is correct and remove the question
         if random_question.is_correct(user_answer):
-            print("Right answer!!! Score: " + str(score))
             score += 1
+            print("Right answer!!! Score: " + str(score))
         else:
             print("Wrong answer. The correct answer is :", random_question.answer)
 
-        selected_questions_list.questions.remove(random_question)
+        selected_questions_list.remove(random_question)
         print()
 
     return score
@@ -193,139 +201,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# class QuizQuestion():
-#     """docstring"""
-#     def __init__(self, question, answer, difficulty, name, all_questions):
-#         """docstring"""
-#         self.question = question
-#         self.answer = answer
-#         self.difficulty = difficulty
-#         # self.name = name
-#         # self.all_questions = []
-
-#         # for question_data in all_questions:
-#         #     loop = QuizQuestion(
-#         #         question=question_data["question"], answer=question_data["answer"]
-#         #     )
-#         #     self.questions.append(loop)
-
-#     def display_question(self):
-#         """Dispay the question."""
-#         print(f"Question: {self.question}")
-
-#     def display_answer(self):
-#         """Display the answer."""
-#         print(f"Answer: {self.answer}")
-
-#     def is_correct(self, user_answer):
-#         """Check if the user's input is the correct answer."""
-#         return user_answer.lower() == self.answer.lower()
-
-#     # def get_random_questions(self):
-#     #     """The questions appear in a random but set order."""
-#     #     random.seed(21)
-#     #     return random.choice(self.all_questions)
-
-#     # def get_all_questions(self):
-#     #     """Get all questions in difficulty."""
-#     #     return self.all_questions
-
-
-# def get_difficulty_list(json_file_path):
-#     """docstring"""
-
-#     # Get Difficulties dict from json file
-#     with open(json_file_path, "r", encoding="utf-8") as json_file:
-#         json_data = json_file.read()
-
-#     data = json.loads(json_data)
-
-#     # Create Difficulty objects
-#     difficulty_list = []
-
-#     for difficulty_data in data["difficulties"]:
-#         difficulty = Difficulty(
-#             name=difficulty_data["name"], questions=difficulty_data["questions"]
-#         )
-#         difficulty_list.append(difficulty)
-
-#     return difficulty_list
-
-
-# class QuizQuestion():
-#     """docstring"""
-#     def __init__(self, question, answer, difficulty):
-#         """docstring"""
-#         self.question = question
-#         self.answer = answer
-#         self.difficulty = difficulty
-
-#     def display_question(self):
-#         """Dispay the question."""
-#         print(f"Question: {self.question}")
-
-#     def display_answer(self):
-#         """Display the answer."""
-#         print(f"Answer: {self.answer}")
-
-#     def is_correct(self, user_answer):
-#         """Check if the user's input is the correct answer."""
-#         return user_answer.lower() == self.answer.lower()
-
-#     questions_json_file_path = Path("questions.json")
-
-#     @staticmethod
-#     def create_quiz_question_list_from_json(questions_json_file_path):
-#         with open(questions_json_file_path, "r") as json_file:
-#             json_data = json_file.read()
-
-#         quiz_question_dict_list = json.loads(json_data)
-
-#         quiz_question_list = []
-
-#         for quiz_question_dict in quiz_question_dict_list:
-#             quiz_question = QuizQuestion(
-#                 quiz_question_dict["question"], quiz_question_dict["answer"], quiz_question_dict["difficulty"]
-#             )
-#             quiz_question_list.append(quiz_question)
-
-#         return quiz_question_list
-
-#     @staticmethod
-#     def filter_by_difficulty(difficulty, quiz_question_list):
-#         filtered_question_list = []
-#         for quiz_question in quiz_question_list:
-#             if difficulty == quiz_question.difficulty:
-#                 filtered_question_list.append(quiz_question)
-
-#         return filtered_question_list
-
-
-# class User:
-#     """docstring"""
-#     def __init__(self, username):
-#         """docstring"""
-#         self.username = username
-#         self.scores = []
-
-#         User.num_users += 1
-
-#     def get_username(self):
-#         """docstring"""
-#         return self.username
-
-#     def add_score(self, score):
-#         self.scores.append(score)
-
-#     def get_score(self):
-#         """docstring"""
-#         return self.scores
-
-#     def get_rank(self):
-#         """docstring"""
-#         return self.rank
-
-# def leaderboard(score):
-#     pass

@@ -9,7 +9,7 @@
             "type": "debugpy",
             "request": "launch",
             "module": "pytest",
-            "args": ["-s","${workspaceFolder}/test_quiz.py::test_main_easy_no", "-vv"]
+            "args": ["-s","${workspaceFolder}/test_quiz.py", "-vv"]
         },
         {
             "name": "Current File",

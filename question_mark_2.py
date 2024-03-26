@@ -35,13 +35,16 @@ class QuizQuestion:
         return user_answer.lower() == self.answer.lower()
 
 
-# Ändrade till filtered list
+# Ändrade till selected list
 def get_random_questions(selected_question_list):
+    """docstr"""
     random.seed(21)
     return random.choice(selected_question_list)
 
 
 class User:
+    """docstr"""
+
     def __init__(self, score=0):
         self.score = score
 
@@ -51,10 +54,12 @@ class User:
         return username
 
     def add_score(self, score):
+        """docstr"""
         score += 1
         return self.score
 
     def get_score(self):
+        """docstr"""
         return self.score
 
 
@@ -62,6 +67,8 @@ class User:
 # Är det att denna endast har de filtrerade frågorna?
 # Nej för det har ju QuestionBoard
 class QuestionManager:
+    """docstr"""
+
     def __init__(self, question, answer):
         self.question = question
         self.answer = answer
@@ -69,19 +76,26 @@ class QuestionManager:
 
 # Har den nuvarande kategorin och dess frågor
 class QuestionBoard:
+    """docstr"""
+
     pass
 
 
 @staticmethod
 def create_quiz_question_list_from_json(questions_json_file_path):
+    """docstr"""
+    # Read the json-file
     questions_json_file_path = Path("questions.json")
     with open(questions_json_file_path, "r") as json_file:
         json_data = json_file.read()
 
+    # Store it in a python list of dicts
     quiz_question_dict_list = json.loads(json_data)
 
     quiz_question_list = []
 
+    # Create a quiz_question object for each dict in the list
+    # Add each quiz_question to the quiz_question_list
     for quiz_question_dict in quiz_question_dict_list:
         quiz_question = QuizQuestion(
             quiz_question_dict["question"],
@@ -95,6 +109,7 @@ def create_quiz_question_list_from_json(questions_json_file_path):
 
 @staticmethod
 def player_choose_difficulty(quiz_question_list):
+    """docstr"""
     selected_difficulty = None
 
     while selected_difficulty is None:
@@ -103,10 +118,13 @@ def player_choose_difficulty(quiz_question_list):
         ).lower()
         print()
 
+        # Check if if any of the questions difficulty matches the user input
+        # If they are equal, create a variable 'selected_difficulty' and pass the difficulty value
         for quiz_question in quiz_question_list:
             if quiz_question.difficulty.lower() == user_input_choose_difficulty:
                 selected_difficulty = quiz_question.difficulty
 
+        # Run this as long as no valid difficulty is passed in
         if selected_difficulty is None:
             print("Choose either easy, medium or hard!")
 
@@ -115,6 +133,9 @@ def player_choose_difficulty(quiz_question_list):
 
 @staticmethod
 def filter_by_selected_difficulty(selected_difficulty, quiz_question_list):
+    """docstr"""
+    # Iterate through all the questions
+    # Add them to a list if their difficulty matches the chosen one
     filtered_question_list = []
     for quiz_question in quiz_question_list:
         if selected_difficulty == quiz_question.difficulty:
@@ -147,7 +168,6 @@ def game_starts():
 
         selected_questions_list = copy.deepcopy(filtered_question_list)
 
-        # Select question, get answer and get point
         score = run_quiz_round(selected_questions_list, score)
 
         print("Round is finished " + username + "! Score: " + str(score))

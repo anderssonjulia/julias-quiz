@@ -10,7 +10,7 @@ class QuizQuestion():
         self.difficulty = difficulty
 
     def display_question(self):
-        """Dispay the question."""
+        """Dispay the question.""" 
         print(f"Question: {self.question}")
 
     def display_answer(self):

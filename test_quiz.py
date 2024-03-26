@@ -5,7 +5,7 @@ from question_mark import main
 # The first three of them includes different "keep playing" inputs (yes, no, maybe -> no)
 # The fourth one has an invalid category input
 
-
+ 
 # Keep playing is no
 def test_main_easy_no(capsys):
     """Docstring"""

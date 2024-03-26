@@ -40,6 +40,21 @@ class QuizQuestion():
 
     questions_json_file_path = Path("questions.json")
 
+
+class User():
+    pass
+
+
+# Ställer frågan och tar in input
+class QuestionManager():
+    pass
+
+
+# Har den nuvarande kategorin och dess frågor
+class QuestionBoard():
+    pass
+
+
 @staticmethod
 def create_quiz_question_list_from_json(questions_json_file_path):
     with open(questions_json_file_path, "r") as json_file:
@@ -67,9 +82,6 @@ def player_choose_difficulty(quiz_question_list):
         )
         print()
 
-        # Returnerar aldrig något annat än None, verkar inte som att jämförselsen funkar.
-        # Tog bort .lower() efter difficulty för det räknades som ett attribute.
-        # Tog därför även bort det på inputen.
         for quiz_question in quiz_question_list:
             if quiz_question.difficulty == user_input_choose_difficulty:
                 selected_difficulty = quiz_question.difficulty

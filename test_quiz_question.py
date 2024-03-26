@@ -8,7 +8,7 @@ def test_constructor():
     quiz_question = QuizQuestion(question, answer, difficulty)
     assert quiz_question.question == question
     assert quiz_question.answer == answer
-    assert quiz_question.difficulty == difficulty
+    assert quiz_question.difficulty == difficulty 
 
 def test_create_quiz_question_list_from_json():
     expected_easy_quiz_question_list_length = 10

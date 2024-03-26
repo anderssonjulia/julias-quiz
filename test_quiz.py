@@ -1,11 +1,11 @@
 from unittest.mock import patch
-from question_mark import main
+from question_mark_2 import main
 
 # This testing file includes four different tests
 # The first three of them includes different "keep playing" inputs (yes, no, maybe -> no)
 # The fourth one has an invalid category input
 
- 
+
 # Keep playing is no
 def test_main_easy_no(capsys):
     """Docstring"""

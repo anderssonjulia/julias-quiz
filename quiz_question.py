@@ -1,8 +1,10 @@
 import json
 from pathlib import Path
 
-class QuizQuestion():
+
+class QuizQuestion:
     """docstring"""
+
     def __init__(self, question, answer, difficulty):
         """docstring"""
         self.question = question
@@ -10,7 +12,7 @@ class QuizQuestion():
         self.difficulty = difficulty
 
     def display_question(self):
-        """Dispay the question.""" 
+        """Dispay the question."""
         print(f"Question: {self.question}")
 
     def display_answer(self):
@@ -29,12 +31,14 @@ class QuizQuestion():
             json_data = json_file.read()
 
         quiz_question_dict_list = json.loads(json_data)
-        
+
         quiz_question_list = []
 
         for quiz_question_dict in quiz_question_dict_list:
             quiz_question = QuizQuestion(
-                quiz_question_dict["question"], quiz_question_dict["answer"], quiz_question_dict["difficulty"]
+                quiz_question_dict["question"],
+                quiz_question_dict["answer"],
+                quiz_question_dict["difficulty"],
             )
             quiz_question_list.append(quiz_question)
 

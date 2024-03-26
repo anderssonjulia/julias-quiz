@@ -13,8 +13,9 @@ from pathlib import Path
 
 
 # Get questions from the json-file
-class QuizQuestion():
+class QuizQuestion:
     """docstring"""
+
     def __init__(self, question, answer, difficulty):
         """docstring"""
         self.question = question
@@ -38,25 +39,37 @@ class QuizQuestion():
         random.seed(21)
         return random.choice(filtered_question_list)
 
-    questions_json_file_path = Path("questions.json")
 
+class User:
+    def __init__(self, score=0):
+        self.score = score
 
-class User():
-    pass
+    def get_username(self):
+        """docstr"""
+        username = input("Username: ")
+        return username
+
+    def add_score(self, score):
+        score += 1
+        return self.score
+
+    def get_score(self):
+        return self.score
 
 
 # Ställer frågan och tar in input
-class QuestionManager():
+class QuestionManager:
     pass
 
 
 # Har den nuvarande kategorin och dess frågor
-class QuestionBoard():
+class QuestionBoard:
     pass
 
 
 @staticmethod
 def create_quiz_question_list_from_json(questions_json_file_path):
+    questions_json_file_path = Path("questions.json")
     with open(questions_json_file_path, "r") as json_file:
         json_data = json_file.read()
 
@@ -66,11 +79,14 @@ def create_quiz_question_list_from_json(questions_json_file_path):
 
     for quiz_question_dict in quiz_question_dict_list:
         quiz_question = QuizQuestion(
-            quiz_question_dict["question"], quiz_question_dict["answer"], quiz_question_dict["difficulty"]
-        ) 
+            quiz_question_dict["question"],
+            quiz_question_dict["answer"],
+            quiz_question_dict["difficulty"],
+        )
         quiz_question_list.append(quiz_question)
 
     return quiz_question_list
+
 
 @staticmethod
 def player_choose_difficulty(quiz_question_list):
@@ -79,17 +95,18 @@ def player_choose_difficulty(quiz_question_list):
     while selected_difficulty is None:
         user_input_choose_difficulty = input(
             "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
-        )
+        ).lower()
         print()
 
         for quiz_question in quiz_question_list:
-            if quiz_question.difficulty == user_input_choose_difficulty:
+            if quiz_question.difficulty.lower() == user_input_choose_difficulty:
                 selected_difficulty = quiz_question.difficulty
 
         if selected_difficulty is None:
             print("Choose either easy, medium or hard!")
-        
+
     return selected_difficulty
+
 
 @staticmethod
 def filter_by_selected_difficulty(selected_difficulty, quiz_question_list):
@@ -105,56 +122,52 @@ def game_starts():
     """docstring"""
     continue_playing = True
 
-    total_score = 0
+    print("QUIZ")
+    print()
 
-    user_input_name = get_user_input_name()
+    user = User()
+
+    username = user.get_username()
+    score = user.get_score()
 
     questions_json_file_path = Path("questions.json")
     quiz_question_list = create_quiz_question_list_from_json(questions_json_file_path)
 
     while continue_playing:
-
         selected_difficulty = player_choose_difficulty(quiz_question_list)
 
-        filtered_question_list = filter_by_selected_difficulty(selected_difficulty, quiz_question_list)
+        filtered_question_list = filter_by_selected_difficulty(
+            selected_difficulty, quiz_question_list
+        )
 
         selected_questions_list = copy.deepcopy(filtered_question_list)
 
         # Select question, get answer and get point
-        total_score += run_quiz_round(selected_questions_list, total_score)
+        score += run_quiz_round(selected_questions_list, score)
 
-        print("Round is finished " + user_input_name + "! Score: " + str(total_score))
+        print("Round is finished " + username + "! Score: " + str(score))
 
-        # Keep playing or not
         continue_playing = player_wants_to_continue_playing()
 
 
-def get_user_input_name():
+def run_quiz_round(selected_questions_list, score):
     """docstr"""
-    print("QUIZ")
-    print()
-    user_input_name = input("Username: ")
+    # Looping through the questions and asking for input
+    while len(selected_questions_list) > 0:
+        random_question = selected_questions_list.get_random_questions()
+        user_answer = input(f"{random_question.question}")
 
-    return user_input_name
-
-
-def run_quiz_round(quiz_list, total_score):
-    """docstr"""
-    round_score = 0
-    while len(quiz_list) > 0:
-        random_question = quiz_list.get_random_questions()
-        user_question_answer = input(f"{random_question.question}")
-
-        if random_question.is_correct(user_question_answer):
-            round_score = round_score + 1
-            print("Right answer!!! Score: " + str(total_score + round_score))
+        # Check if the player's answer is correct and remove the question
+        if random_question.is_correct(user_answer):
+            print("Right answer!!! Score: " + str(score))
+            score += 1
         else:
             print("Wrong answer. The correct answer is :", random_question.answer)
 
-        quiz_list.questions.remove(random_question)
+        selected_questions_list.questions.remove(random_question)
         print()
 
-    return round_score
+    return score
 
 
 def player_wants_to_continue_playing():
@@ -163,6 +176,7 @@ def player_wants_to_continue_playing():
         yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
         print()
 
+        # Check player's answer
         if yes_or_no == "yes":
             return True
         if yes_or_no == "no":
@@ -179,17 +193,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
 
 
 # class QuizQuestion():
@@ -219,7 +222,7 @@ if __name__ == "__main__":
 #     def is_correct(self, user_answer):
 #         """Check if the user's input is the correct answer."""
 #         return user_answer.lower() == self.answer.lower()
-    
+
 #     # def get_random_questions(self):
 #     #     """The questions appear in a random but set order."""
 #     #     random.seed(21)
@@ -279,7 +282,7 @@ if __name__ == "__main__":
 #             json_data = json_file.read()
 
 #         quiz_question_dict_list = json.loads(json_data)
-        
+
 #         quiz_question_list = []
 
 #         for quiz_question_dict in quiz_question_dict_list:
@@ -312,17 +315,17 @@ if __name__ == "__main__":
 #     def get_username(self):
 #         """docstring"""
 #         return self.username
-    
+
 #     def add_score(self, score):
 #         self.scores.append(score)
 
 #     def get_score(self):
 #         """docstring"""
 #         return self.scores
-    
+
 #     def get_rank(self):
 #         """docstring"""
 #         return self.rank
-    
+
 # def leaderboard(score):
 #     pass

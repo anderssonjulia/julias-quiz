@@ -109,7 +109,7 @@ def get_user_input_name():
     print()
     user_input_name = input("Username: ")
 
-    return user_input_name 
+    return user_input_name
 
 
 def player_choose_difficulty(difficulty_list):

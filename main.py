@@ -11,6 +11,8 @@ from pathlib import Path
 
 from quiz.user import User
 from quiz.input_manager import InputManager
+from quiz.question_board import QuestionBoard
+from quiz.question import Question
 
 # def game_starts():
 #     """docstr"""
@@ -79,18 +81,24 @@ from quiz.input_manager import InputManager
 #         if yes_or_no not in ("yes", "no"):
 #             print("Choose either yes or no: ")
 
+QUESTION_FILE_PATH = Path("questions.json")
+
 
 def main():
     """docstr"""
     # Start game
-    quiz_manager = InputManager()
 
-    question_file_path = Path("questions.json")
-    quiz_manager.initialize_all_questions(question_file_path)
+    input_manager = InputManager()
 
-    quiz_manager.initialize_user()
+    question_list = Question.create_quiz_question_list_from_json(QUESTION_FILE_PATH)
 
-    quiz_manager.start_quiz()
+    user = User()
+    input_manager.set_user_name(user)
+    input_manager.get_question_board()
+
+    input_manager.start_quiz()
+
+    question_board = QuestionBoard()
 
 
 if __name__ == "__main__":

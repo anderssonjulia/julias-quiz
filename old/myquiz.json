@@ -1,0 +1,49 @@
+{
+    "difficulties": [
+        {
+            "name": "Easy",
+        "questions": [
+            {"question": "What is the capital of Japan?", "answer": "Tokyo"},
+            {"question": "Who painted the Mona Lisa?", "answer": "Leonardo da Vinci"},
+            {"question": "What is 8 * 6?", "answer": "48"},
+            {"question": "In which year did World War II begin?", "answer": "1939"},
+            {"question": "Which is the red planet?", "answer": "Mars"},
+            {"question": "Who wrote Romeo and Juliet?", "answer": "William Shakespeare"},
+            {"question": "What is the main ingredient in guacamole?", "answer": "Avocado"},
+            {"question": "What is the largest mammal?", "answer": "Elephant"},
+            {"question": "What is the main ingredient in sushi?", "answer": "Rice"},
+            {"question": "Who invented electricity?", "answer": "Thomas Edison"}
+        ]
+    },
+    {
+        "name": "Medium",
+        "questions": [
+            {"question": "What is the world's largest country by area?", "answer": "Russia"},
+            {"question": "Which gas is most abundant in the Earth's atmosphere?", "answer": "Nitrogen"},
+            {"question": "In which year did the American Civil War begin?", "answer": "1861"},
+            {"question": "What is the square root of 121?", "answer": "11"},
+            {"question": "Who directed the film 'The Piano,' which won the Palme d'Or in 1993?", "answer": "Jane Campion"},
+            {"question": "What does the acronym 'HTML' stand for in web development?", "answer": "HyperText Markup Language"},
+            {"question": "Which author wrote 'One Hundred Years of Solitude'?", "answer": "Gabriel Garcia Marquez"},
+            {"question": "Which country hosted the Olympic Summer Games in 2016?", "answer": "Brazil"},
+            {"question": "Which organ produces insulin in the human body?", "answer": "Pancreas"},
+            {"question": "Who was a member of The Beatles and wrote songs like 'Imagine'?", "answer": "John Lennon"}
+        ]
+    },
+    {
+        "name": "Hard",
+        "questions": [
+            {"question": "Which country has the highest point of Mount Everest within its borders?", "answer": "Nepal"},
+            {"question": "What is the term for the philosophical study of knowledge and belief?", "answer": "Epistemology"},
+            {"question": "What is the period called when dinosaurs lived?", "answer": "Mesozoic Era"},
+            {"question": "What is the name of the part of a plant where pollen is produced?", "answer": "Stamen"},
+            {"question": "What is the term for a mathematical model used to simulate natural phenomena?", "answer": "Differential Equation"},
+            {"question": "What is the study of the sound system of a language called?", "answer": "Phonology"},
+            {"question": "What is the name of the condition where the body's immune system attacks its own cells?", "answer": "Autoimmunity"},
+            {"question": "What is the term used for the point where light rays converge or diverge?", "answer": "Focus"},
+            {"question": "What is the name of the process where a gas transforms directly into a solid form?", "answer": "Sublimation"},
+            {"question": "What is the term for an economic model assuming that people make decisions based on rational self-interest?", "answer": "Homo economicus"}
+        ]
+        }
+    ]
+}

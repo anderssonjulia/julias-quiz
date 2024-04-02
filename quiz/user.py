@@ -1,19 +1,14 @@
 class User:
     """docstr"""
 
-    def __init__(self, score=0):
-        self.score = score
+    def __init__(self, username=None, score=0):
+        self.username = username
+        self._score = score
 
-    def set_username(self):
-        """docstr"""
-        username = input("Username: ")
-        return username
+    @property
+    def score(self):
+        return self._score
 
-    def add_score(self, score):
-        """docstr"""
-        score += 1
-        return self.score
-
-    def get_score(self):
-        """docstr"""
-        return self.score
+    @score.setter
+    def score(self, score):
+        self._score = score

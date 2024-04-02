@@ -4,6 +4,7 @@ from main import main
 # This testing file includes four different tests
 # The first three of them includes different "keep playing" inputs (yes, no, maybe -> no)
 # The fourth one has an invalid category input
+# All of them test both correct and incorrect answer input
 
 
 # Keep playing is no

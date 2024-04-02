@@ -1,47 +1,38 @@
 class InputManager():
     """The quiz manager is the head of the quiz. It communicates with the QuestionBoard and QuizUser classes."""
-    def initialize_all_questions(question_file_path):
-        with open(question_file_path, "r") as json_file:
 
-        json_data = json_file.read(question_file_path)
+    @staticmethod
+    def get_selected_difficulty():
 
-    def initialize_user():
-        pass
+        selected_difficulty = None
 
-    def start_quiz():
-        pass
+        while selected_difficulty is None:
+            player_choose_difficulty = input(
+                "Choose the difficulty of the quiz: (Easy/Medium/Hard) "
+            ).lower()
+            print()
 
+            if player_choose_difficulty in ("easy", "medium", "hard"):
+                selected_difficulty = player_choose_difficulty
 
+            # Run this as long as no valid difficulty is passed in
+            if selected_difficulty is None:
+                print("Choose either easy, medium or hard!")
 
+        return selected_difficulty
 
+    @staticmethod
+    def does_player_want_to_continue_playing():
 
-    def get_random_question(self, selected_question_list):
-        """docstr"""
-        random.seed(21)
-        return random.choice(selected_question_list)
+        while True:
+            yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
+            print()
+        
+            if yes_or_no == "yes":
+                return True
+            elif yes_or_no == "no":
+                return False
+            print("Choose either yes or no: ")
 
-    def check_answer(
-        self, random_question, selected_questions_list, user_answer, score
-    ):
-        """docstr"""
-        if random_question.is_correct(user_answer):
-            score += 1
-            print("Right answer!!! Score: " + str(score))
-        else:
-            print("Wrong answer. The correct answer is :", random_question.answer)
-
-        selected_questions_list.remove(random_question)
-        print()
-
-        return selected_questions_list, score
-
-    def get_answer_input(self, random_question):
-        """docstr"""
-
-        # AttributeError: 'list' object has no attribute 'get_random_questions'
-        user_answer = input(f"{random_question.question}")
-
-        return user_answer, random_question
-
-# Ska alla klasser och funktioner vara på samma nivå, vilket de är nu, eller ska de vara under quiz_manager.py eftersom den interagerar med alla?
-# 
+    def get_answer(question):
+        return input(f"{question.question}")

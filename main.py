@@ -9,11 +9,14 @@ QUESTION_FILE_PATH = Path("data/questions.json")
 
 
 def print_quiz_header():
+    """Print the header."""
     print("QUIZ")
     print()
 
-
 def start_round(input_manager, user, question_list):
+    """Start round of the quiz with the selected difficulty. Runs until
+    the question board is empty. If the iser input is correct, a point is added
+    to User score. If it is not, the correct answer is printed."""
 
     selected_difficulty = input_manager.get_selected_difficulty()
     question_board = QuestionBoard.filter_by_selected_difficulty(
@@ -36,7 +39,8 @@ def start_round(input_manager, user, question_list):
 
 
 def main():
-    """docstr"""
+    """Call all of the functions and initialize the objects to run the quiz.
+    Start round and after each one, print score and check if the player wants to continue."""
     # Start game
     print_quiz_header()
 

@@ -1,6 +1,6 @@
 class InputManager:
     """Include methods that handle user input such as get difficulty, continue playing, get answer and
-get username."""
+    get username."""
 
     @staticmethod
     def get_selected_difficulty():

@@ -9,7 +9,6 @@ from main import main
 
 # Keep playing is no
 def test_main_easy_no(capsys):
-    """Docstring"""
     input_dict = {}
     input_dict["username"] = "Julia"
     input_dict["difficulty"] = "Easy"
@@ -78,7 +77,6 @@ Round is finished Julia! Score: 7
 
 # Keep playing is yes
 def test_main_easy_yes(capsys):
-    """Docstring"""
     input_dict = {}
     input_dict["username"] = "Julia"
     input_dict["difficulty"] = "Easy"
@@ -183,7 +181,6 @@ Round is finished Julia! Score: 14
 
 # Keep playing is neither yes or no
 def test_main_easy_neither(capsys):
-    """Docstring"""
     input_dict = {}
     input_dict["username"] = "Julia"
     input_dict["difficulty"] = "Easy"
@@ -292,7 +289,6 @@ Round is finished Julia! Score: 14
 
 # Invalid difficulty
 def test_main_invalid_difficulty(capsys):
-    """Docstring"""
     input_dict = {}
     input_dict["username"] = "Julia"
     input_dict["difficulty"] = "Esy"
@@ -361,6 +357,15 @@ Round is finished Julia! Score: 7
     with patch("builtins.input", side_effect=get_input):
         main()
     assert expected == capsys.readouterr().out
+
+
+def ask_question(selected_category_copy):
+    """docstr"""
+    random_question = selected_category_copy.get_random_questions()
+
+    user_question_answer = input(f"{random_question.question} ")
+
+    return user_question_answer, random_question
 
 
 # @pytest.fixture
@@ -459,16 +464,6 @@ Round is finished Julia! Score: 7
 
 
 # Reformat the code into a fixture
-
-
-def ask_question(selected_category_copy):
-    """docstr"""
-    random_question = selected_category_copy.get_random_questions()
-
-    user_question_answer = input(f"{random_question.question} ")
-
-    return user_question_answer, random_question
-
 
 # # Inside game_starts() function
 # user_question_answer = ask_question(random_question)

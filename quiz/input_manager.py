@@ -1,8 +1,12 @@
-class InputManager():
-    """The quiz manager is the head of the quiz. It communicates with the QuestionBoard and QuizUser classes."""
+"""docstr"""
+
+class InputManager:
+    """The quiz manager is the head of the quiz. It communicates with the QuestionBoard and QuizUser
+    classes."""
 
     @staticmethod
     def get_selected_difficulty():
+        """docstr"""
 
         selected_difficulty = None
 
@@ -23,16 +27,23 @@ class InputManager():
 
     @staticmethod
     def does_player_want_to_continue_playing():
+        """docstr"""
 
         while True:
             yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
             print()
-        
+
             if yes_or_no == "yes":
                 return True
-            elif yes_or_no == "no":
+            if yes_or_no == "no":
                 return False
             print("Choose either yes or no: ")
 
+    @staticmethod
     def get_answer(question):
+        """docstr"""
         return input(f"{question.question}")
+    
+    @staticmethod
+    def get_username(user):
+        return input(f"{user.username}")

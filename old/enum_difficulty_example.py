@@ -1,9 +1,11 @@
 import enum
+
+
 class Difficulty(enum.Enum):
     easy = enum.auto()
     medium = enum.auto()
     hard = enum.auto()
-    
+
     @staticmethod
     def from_str(difficulty):
         if difficulty.lower() == "easy":
@@ -16,9 +18,10 @@ class Difficulty(enum.Enum):
             raise ValueError(f"Unknown difficulty {difficulty}")
 
 
-class Question():
+class Question:
     def __init__(self, difficulty):
         self.difficulty = Difficulty.from_str(difficulty)
+
 
 question = Question("medium")
 selected_difficulty = Difficulty.from_str(input("Enter difficulty: "))

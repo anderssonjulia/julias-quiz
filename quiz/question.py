@@ -1,3 +1,5 @@
+"""docstr"""
+
 import json
 
 class Question:
@@ -17,7 +19,7 @@ class Question:
     def create_quiz_question_list_from_json(questions_json_file_path):
         """docstr"""
         # Read the json-file
-        with open(questions_json_file_path, "r") as json_file:
+        with open(questions_json_file_path, "r", encoding="utf-8") as json_file:
             json_data = json_file.read()
 
         # Store it in a python list of dicts

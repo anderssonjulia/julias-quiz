@@ -38,7 +38,7 @@ class Difficulty:
 
     def __init__(self, name, questions):
         """Constructor documentation."""
-        self.name = name
+        self.name = namequiz/question_board.py
         self.questions = []
 
         for question_data in questions:

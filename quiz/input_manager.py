@@ -1,13 +1,11 @@
-"""docstr"""
-
-
 class InputManager:
-    """The quiz manager is the head of the quiz. It communicates with the QuestionBoard and QuizUser
-    classes."""
+    """Include methods that handle user input such as get difficulty, continue playing, get answer and
+get username."""
 
     @staticmethod
     def get_selected_difficulty():
-        """docstr"""
+        """Demand user input and if it matches any difficulty, set "selected_difficulty" to that difficulty.
+        If not, tell the user to choose easy, medium or hard. Loop continues until "selected_difficulty" is set."""
 
         selected_difficulty = None
 
@@ -28,7 +26,7 @@ class InputManager:
 
     @staticmethod
     def does_player_want_to_continue_playing():
-        """docstr"""
+        """Demand user input. If it is equal to yes, return True, if it is equal to no, return False."""
 
         while True:
             yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
@@ -42,10 +40,10 @@ class InputManager:
 
     @staticmethod
     def get_answer(question):
-        """docstr"""
+        """Display the question and demand an user input."""
         return input(f"{question.question}")
 
     @staticmethod
     def get_username(user):
-        """docstr"""
-        return input(f"{user.username}")
+        """Demand user to insert username."""
+        return input(f"Username: {user.username}")

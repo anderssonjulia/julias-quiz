@@ -1,5 +1,6 @@
 """docstr"""
 
+
 class InputManager:
     """The quiz manager is the head of the quiz. It communicates with the QuestionBoard and QuizUser
     classes."""
@@ -43,7 +44,8 @@ class InputManager:
     def get_answer(question):
         """docstr"""
         return input(f"{question.question}")
-    
+
     @staticmethod
     def get_username(user):
+        """docstr"""
         return input(f"{user.username}")

@@ -2,6 +2,7 @@
 
 import random
 
+
 class QuestionBoard:
     """docstr"""
 
@@ -18,8 +19,9 @@ class QuestionBoard:
     def pop_question(self):
         """docstr"""
         return self.question_list.pop()
-    
+
     def append(self, question):
+        """docstr"""
         return self.question_list.append(question)
 
     @staticmethod
@@ -34,7 +36,8 @@ class QuestionBoard:
             if selected_difficulty == question.difficulty.lower():
                 question_board.append(question)
 
-# quiz/question_board.py:32:16: E1101: Instance of 'QuestionBoard' has no 'append' member (no-member)
-# Fixa som Alex gjorde
+        # quiz/question_board.py:32:16: E1101:
+        # Instance of 'QuestionBoard' has no 'append' member (no-member)
+        # Fixa som Alex gjorde
 
         return question_board

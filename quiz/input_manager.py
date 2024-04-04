@@ -1,11 +1,12 @@
 class InputManager:
-    """Include methods that handle user input such as get difficulty, continue playing, get answer and
-    get username."""
+    """Include methods that handle user input such as get difficulty, continue playing, get answer 
+    and get username."""
 
     @staticmethod
     def get_selected_difficulty():
-        """Demand user input and if it matches any difficulty, set "selected_difficulty" to that difficulty.
-        If not, tell the user to choose easy, medium or hard. Loop continues until "selected_difficulty" is set."""
+        """Demand user input and if it matches any difficulty, set "selected_difficulty" to that 
+        difficulty. If not, tell the user to choose easy, medium or hard. Loop continues until 
+        "selected_difficulty" is set."""
 
         selected_difficulty = None
 
@@ -26,7 +27,8 @@ class InputManager:
 
     @staticmethod
     def does_player_want_to_continue_playing():
-        """Demand user input. If it is equal to yes, return True, if it is equal to no, return False."""
+        """Demand user input. If it is equal to yes, return True,  
+        if it is equal to no, return False."""
 
         while True:
             yes_or_no = input("Do you want to keep playing? (Yes/No) ").lower()
@@ -41,7 +43,7 @@ class InputManager:
     @staticmethod
     def get_answer(question):
         """Display the question and demand an user input."""
-        return input(f"{question.question}")
+        return input(f"{question.question} ")
 
     @staticmethod
     def get_username(user):

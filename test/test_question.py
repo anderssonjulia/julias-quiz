@@ -1,4 +1,5 @@
 from pathlib import Path
+from unittest.mock import patch
 
 from quiz.question import Question
 from quiz.question_board import QuestionBoard
@@ -13,10 +14,11 @@ def test_constructor():
     assert question.answer == answer
     assert question.difficulty == difficulty
 
-def test_create_quiz_question_list_from_json():
+
+def test_create_quiz_question_list_from_json(capsys):
     expected_easy_quiz_question_list_length = 10
 
-    questions_json_file_path = Path("questions.json")
+    questions_json_file_path = Path("data/questions.json")
     question_list = Question.create_quiz_question_list_from_json(
         questions_json_file_path
     )

@@ -1,5 +1,7 @@
-from old.question_old import QuizQuestion
 from pathlib import Path
+from unittest.mock import patch
+
+from old.question_old import QuizQuestion
 
 
 def test_constructor():
@@ -15,7 +17,7 @@ def test_constructor():
 def test_create_quiz_question_list_from_json():
     expected_easy_quiz_question_list_length = 10
 
-    questions_json_file_path = Path("questions.json")
+    questions_json_file_path = Path("data/questions.json")
     quiz_question_list = QuizQuestion.create_quiz_question_list_from_json(
         questions_json_file_path
     )

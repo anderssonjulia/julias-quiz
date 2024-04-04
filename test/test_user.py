@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from quiz.user import User
 
 
@@ -8,8 +10,10 @@ def test_constructor():
     assert user.username == username
     assert user.score == score
 
+
 def test_score():
     pass
+
 
 def test_score():
     pass

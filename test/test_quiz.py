@@ -1,5 +1,7 @@
 from unittest.mock import patch
+
 from main import main
+
 
 # This testing file includes four different tests
 # The first three of them includes different "keep playing" inputs (yes, no, maybe -> no)

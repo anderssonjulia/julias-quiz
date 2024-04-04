@@ -13,6 +13,7 @@ def print_quiz_header():
     print("QUIZ")
     print()
 
+
 def start_round(input_manager, user, question_list):
     """Start round of the quiz with the selected difficulty. Runs until
     the question board is empty. If the iser input is correct, a point is added
@@ -31,8 +32,7 @@ def start_round(input_manager, user, question_list):
 
         if question.is_correct(user_question_answer):
             score += 1
-        else:
-            print("Wrong answer. The correct answer is :", question.answer)
+        
         print()
 
     user.score += score
@@ -56,7 +56,7 @@ def main():
 
     while continue_playing:
         start_round(input_manager, user, question_list)
-        print(f"Score: {user.score}")
+        print(f"Round is finished! Total score: {user.score}")
         continue_playing = input_manager.does_player_want_to_continue_playing()
 
 

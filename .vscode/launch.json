@@ -9,7 +9,18 @@
             "type": "debugpy",
             "request": "launch",
             "module": "pytest",
-            "args": ["-s","${workspaceFolder}/test/test_quiz.py", "-vv"]
+            "args": [
+                "-vvs",
+                "--cov=${workspaceFolder}/quiz",
+                "--cov-report",
+                "html",
+                "--cov-report",
+                "term",
+                "${workspaceFolder}/test/test_input_manager.py",
+                "${workspaceFolder}/test/test_question_board.py",
+                "${workspaceFolder}/test/test_question.py",
+                "${workspaceFolder}/test/test_user.py"
+        ]
         },
         {
             "name": "Current File",

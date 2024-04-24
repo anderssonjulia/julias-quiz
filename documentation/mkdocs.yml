@@ -1,5 +1,0 @@
-site_name: Quiz
-nav:
-  - Home: index.md
-  - About: about.md
-theme: readthedocs

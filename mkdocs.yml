@@ -1,0 +1,55 @@
+site_name: MkDocs Quiz
+theme:
+  name: material
+  features:
+    - navigation.tabs
+  # - navigation.sections
+    - toc.integrate
+  # - navigation.top
+    - search.suggest # Making suggestions to your search
+    - search.highlight # Highlights what you searched for
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy # A copy button by the code blocks
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: teal
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: teal
+      accent: blue
+nav:
+  - Home: index.md
+  - About: about.md
+
+
+
+
+
+
+
+# extra:
+#   social:
+#   - icon: fontawesome/brands/github-alt
+#   - link: https://github.com/anderssonjulia/julias-quiz
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list

@@ -66,6 +66,6 @@ jobs:
       - name: Run Pytest
         run: 
           pytest -s test/test_input_manager.py
-          pytest -s test/test_question_board.py
-          pytest -s test/test_question.py
-          pytest -s test/test_user.py
+          -s test/test_question_board.py
+          -s test/test_question.py
+          -s test/test_user.py

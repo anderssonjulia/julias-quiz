@@ -1,29 +1,32 @@
 name: Documentation
+
 on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
+  
 jobs:
   deploy:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout code
-    - uses: actions/checkout@v3
-
-    - name: Set up Python
-    - uses: actions/setup-python@v4
-      with:
-        python-version: 3.10.12
-
-    - uses: actions/cache@v2
-
-      with:
-        key: §{{ github.ref }}
-        path: .cache
-    
-    - name: Install Dependencies
-      run: pip install mkdocs-material
-
-    - run: mkdocs gh-deploy --force
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+      - uses: actions/checkout@v3
+  
+      - name: Set up Python
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.10.12
+  
+      - uses: actions/cache@v2
+  
+        with:
+          key: §{{ github.ref }}
+          path: .cache
+      
+      - name: Install Dependencies
+        run: pip install mkdocs-material
+  
+      - run: mkdocs gh-deploy --force

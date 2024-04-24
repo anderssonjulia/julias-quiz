@@ -1,3 +1,19 @@
+
+kvar att skriva: 
+input_manager(4): test_get_selected_difficulty():,test_does_player_want_to_continue_playing():,test_get_answer():,test_get_username():
+question_board(1): test_filter_by_selected_difficulty():
+tot: 5
+
+
+###########################
+
+ska quiz.py ha ett eget system test eller räcker system test, eftersom det nästan är main?
+
+test_create_quiz_question_list_from_json(): finns i test_quiz.py och testar både create och filter
+
+###########################
+
+
 Quizet börjar med att man utser en quiz manager. 
 Quiz manager får alla frågor från json filen.
 Quiz manager registrerar en ny användare.

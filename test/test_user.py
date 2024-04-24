@@ -1,4 +1,4 @@
-from unittest.mock import patch
+import unittest
 
 from quiz.user import User
 
@@ -12,8 +12,11 @@ def test_constructor():
 
 
 def test_score():
-    pass
+    input_list = User()
+    expected = 2
+    input_list.score = expected
+    assert input_list.score == expected
 
 
-def test_score():
-    pass
+# def test_score():
+#     pass

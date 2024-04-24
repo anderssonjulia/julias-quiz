@@ -48,27 +48,13 @@ def test_main_easy_no(capsys):
     expected = """QUIZ
 
 
-Right answer!!! Score: 1
-
-Right answer!!! Score: 2
-
-Right answer!!! Score: 3
-
 Wrong answer. The correct answer is : Leonardo da Vinci
-
-Right answer!!! Score: 4
-
-Right answer!!! Score: 5
 
 Wrong answer. The correct answer is : Elephant
 
-Right answer!!! Score: 6
-
-Right answer!!! Score: 7
-
 Wrong answer. The correct answer is : Thomas Edison
 
-Round is finished Julia! Score: 7
+Round is finished Julia! Total score: 7
 
 """
 
@@ -128,51 +114,21 @@ def test_main_easy_yes(capsys):
 
     expected = """QUIZ
 
-
-Right answer!!! Score: 1
-
-Right answer!!! Score: 2
-
-Right answer!!! Score: 3
-
 Wrong answer. The correct answer is : Leonardo da Vinci
-
-Right answer!!! Score: 4
-
-Right answer!!! Score: 5
 
 Wrong answer. The correct answer is : Elephant
 
-Right answer!!! Score: 6
-
-Right answer!!! Score: 7
-
 Wrong answer. The correct answer is : Thomas Edison
 
-Round is finished Julia! Score: 7
-
-
-Right answer!!! Score: 8
-
-Right answer!!! Score: 9
-
-Right answer!!! Score: 10
+Round is finished Julia! Total score: 7
 
 Wrong answer. The correct answer is : Leonardo da Vinci
 
-Right answer!!! Score: 11
-
-Right answer!!! Score: 12
-
 Wrong answer. The correct answer is : Elephant
-
-Right answer!!! Score: 13
-
-Right answer!!! Score: 14
 
 Wrong answer. The correct answer is : Thomas Edison
 
-Round is finished Julia! Score: 14
+Round is finished Julia! Total score: 14
 
 """
 
@@ -235,52 +191,24 @@ def test_main_easy_neither(capsys):
     expected = """QUIZ
 
 
-Right answer!!! Score: 1
-
-Right answer!!! Score: 2
-
-Right answer!!! Score: 3
-
 Wrong answer. The correct answer is : Leonardo da Vinci
-
-Right answer!!! Score: 4
-
-Right answer!!! Score: 5
 
 Wrong answer. The correct answer is : Elephant
 
-Right answer!!! Score: 6
-
-Right answer!!! Score: 7
-
 Wrong answer. The correct answer is : Thomas Edison
 
-Round is finished Julia! Score: 7
+Round is finished Julia! Total score: 7
 
 Choose either yes or no: 
 
 
-Right answer!!! Score: 8
-
-Right answer!!! Score: 9
-
-Right answer!!! Score: 10
-
 Wrong answer. The correct answer is : Leonardo da Vinci
-
-Right answer!!! Score: 11
-
-Right answer!!! Score: 12
 
 Wrong answer. The correct answer is : Elephant
 
-Right answer!!! Score: 13
-
-Right answer!!! Score: 14
-
 Wrong answer. The correct answer is : Thomas Edison
 
-Round is finished Julia! Score: 14
+Round is finished Julia! Total score: 14
 
 """
 
@@ -332,27 +260,13 @@ def test_main_invalid_difficulty(capsys):
 
 Choose either easy, medium or hard!
 
-Right answer!!! Score: 1
-
-Right answer!!! Score: 2
-
-Right answer!!! Score: 3
-
 Wrong answer. The correct answer is : Leonardo da Vinci
-
-Right answer!!! Score: 4
-
-Right answer!!! Score: 5
 
 Wrong answer. The correct answer is : Elephant
 
-Right answer!!! Score: 6
-
-Right answer!!! Score: 7
-
 Wrong answer. The correct answer is : Thomas Edison
 
-Round is finished Julia! Score: 7
+Round is finished Julia! Total score: 7
 
 """
 

@@ -2,28 +2,38 @@ from pathlib import Path
 from unittest.mock import patch
 
 from quiz.question import Question
-from quiz.question_board import QuestionBoard
 
 
 def test_constructor():
     question = "question?"
     answer = "test_answer"
     difficulty = "easy"
-    question = Question(question, answer, difficulty)
-    assert question.question == question
-    assert question.answer == answer
-    assert question.difficulty == difficulty
+    question_example = Question(question, answer, difficulty)
+    assert question_example.question == question
+    assert question_example.answer == answer
+    assert question_example.difficulty == difficulty
 
 
-def test_create_quiz_question_list_from_json(capsys):
-    expected_easy_quiz_question_list_length = 10
+def test_is_correct():
+    question = Question(question="question?", answer="test_answer", difficulty="easy")
 
-    questions_json_file_path = Path("data/questions.json")
+    expected = False
+
+    my_input = "dont know"
+
+    def get_input():
+        return my_input
+
+    with patch("builtins.input", side_effect=get_input):
+        returned = question.is_correct(my_input)
+    assert expected == returned
+
+
+def test_create_quiz_question_list_from_json():
+    expected_easy_quiz_question_list_length = 30
+
     question_list = Question.create_quiz_question_list_from_json(
-        questions_json_file_path
-    )
-    easy_quiz_question_list = QuestionBoard.filter_by_selected_difficulty(
-        "Easy", question_list
+        Path("data/questions.json")
     )
 
-    assert len(easy_quiz_question_list)
+    assert len(question_list) == expected_easy_quiz_question_list_length

@@ -23,18 +23,18 @@ class Question:
             json_data = json_file.read()
 
         # Store it in a python list of dicts
-        quiz_question_dict_list = json.loads(json_data)
+        question_dict_list = json.loads(json_data)
 
-        quiz_question_list = []
+        question_list = []
 
         # Create a quiz_question object for each dict in the list
         # Add each quiz_question to the quiz_question_list
-        for quiz_question_dict in quiz_question_dict_list:
-            quiz_question = Question(
-                quiz_question_dict["question"],
-                quiz_question_dict["answer"],
-                quiz_question_dict["difficulty"],
+        for question_dict in question_dict_list:
+            question = Question(
+                question_dict["question"],
+                question_dict["answer"],
+                question_dict["difficulty"],
             )
-            quiz_question_list.append(quiz_question)
+            question_list.append(question)
 
-        return quiz_question_list
+        return question_list

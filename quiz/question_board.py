@@ -1,3 +1,5 @@
+"Question board"
+
 import random
 
 

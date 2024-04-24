@@ -1,3 +1,5 @@
+"User"
+
 class User:
     """Has username and score attributes that are initially None and 0."""
 
@@ -5,6 +7,7 @@ class User:
         self.username = username
         self._score = score
 
+    "Score"
     @property
     def score(self):
         return self._score

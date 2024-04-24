@@ -1,3 +1,5 @@
+"Quiz"
+
 from quiz.question_board import QuestionBoard
 
 
@@ -33,7 +35,8 @@ def _start_round(input_manager, user, question_list):
 
 def start_quiz(input_manager, question_list, user):
     """Call all of the functions and initialize the objects to run the quiz.
-    Start round and after each one, print score and check if the player wants to continue."""
+    Start round and after each one, print score and check if the player wants to continue.
+    """
     # Start game
     _print_quiz_header()
 

@@ -1,3 +1,5 @@
+"Main"
+
 from pathlib import Path
 
 from quiz.quiz import start_quiz

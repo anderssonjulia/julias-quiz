@@ -1,3 +1,5 @@
+"Input manager"
+
 class InputManager:
     """Include methods that handle user input such as get difficulty, continue playing, get answer
     and get username."""

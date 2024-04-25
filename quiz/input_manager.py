@@ -29,7 +29,7 @@ class InputManager:
         return selected_difficulty
 
     @staticmethod
-    def does_player_want_to_continue_playing():
+    def does_player_want_to_continue_playing(user):
         """Demand user input. If it is equal to yes, return True,
         if it is equal to no, return False."""
 
@@ -40,6 +40,7 @@ class InputManager:
             if yes_or_no == "yes":
                 return True
             if yes_or_no == "no":
+                user.save_user_score(user)
                 return False
             print("Choose either yes or no: ")
 
@@ -51,4 +52,5 @@ class InputManager:
     @staticmethod
     def get_username(user):
         """Demand user to insert username."""
-        return input(f"Username: {user.username}")
+        user.username = input("Username: ")
+        return user.username

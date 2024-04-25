@@ -1,4 +1,8 @@
-# Homepage
+# Homepage?
+
+## Leaderboard
+
+<iframe src="highscore.html" width="100%" height="500px"></iframe>
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 

@@ -30,7 +30,7 @@ def _start_round(input_manager, user, question_list):
 
         print()
 
-    user.score += score
+    user._score += score
 
 
 def start_quiz(input_manager, question_list, user):
@@ -46,5 +46,5 @@ def start_quiz(input_manager, question_list, user):
 
     while continue_playing:
         _start_round(input_manager, user, question_list)
-        print(f"Round is finished {user.username}! Total score: {user.score}")
-        continue_playing = input_manager.does_player_want_to_continue_playing()
+        print(f"Round is finished {user.username}! Total score: {user._score}")
+        continue_playing = input_manager.does_player_want_to_continue_playing(user)

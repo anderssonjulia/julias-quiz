@@ -87,7 +87,6 @@ def test_get_answer():
         return my_input
 
     expected_answer = "test_answer"
-    expected_result = "Fel"
 
     with patch("builtins.input", side_effect=get_input):
         input_manager.get_answer(question)

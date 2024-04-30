@@ -17,6 +17,3 @@ def test_score():
     input_list.score = expected
     assert input_list.score == expected
 
-
-# def test_score():
-#     pass

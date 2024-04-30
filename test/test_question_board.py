@@ -34,11 +34,6 @@ def test_randomize():
     assert not_expected != returned
 
 
-# Räcker det att jag testar pop för en lista
-# eller måste jag testa ett objekt som innehåller en lista?
-# För det är ju därför jag har metoden från början för att det ska gå för mina objekt
-
-
 def test_pop_question():
     input_list = QuestionBoard()
     input_list.question_list = ["1", "2", "3"]
@@ -78,9 +73,4 @@ def test_filter_by_selected_difficulty():
 
     question_board = QuestionBoard.filter_by_selected_difficulty("easy", question_list)
 
-    # TypeError: 'QuestionBoard' object is not iterable
-    # for question in question_board:
-    #     assert question.difficulty == expected_difficulty
-
     assert len(question_board) == expected_easy_quiz_question_board_length
-    # assert question_board(question.difficulty.lower())
